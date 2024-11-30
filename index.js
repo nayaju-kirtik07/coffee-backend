@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const session = require("express-session");
+const PORT = process.env.PORT || 4000;
 
 const app = express();
 const server = http.createServer(app);
@@ -39,11 +40,15 @@ app.use(
 // Use your routers here
 app.use("/", userRouter);
 
+app.get('/', (req, res) => {
+  res.send('Hello, Render!');
+});
+
 connectToDatabase(() => {
   console.log("Successfully connected to database");
 
   // Listen only on localhost for local development
-  server.listen(3001, "localhost", () => {
+  server.listen(PORT, () => {
     console.log(`Server is running on localhost:3001`);
   });
 });

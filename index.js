@@ -16,7 +16,7 @@ const userRouter = require("./allRoutes/userRouter");
 
 app.use(
   cors({
-    origin: ["http://localhost:3000"], // Only allow requests from localhost:3000
+    origin: ["http://localhost:3000","https://coffee-frontend-nine.vercel.app"], 
     credentials: true,
   })
 );
